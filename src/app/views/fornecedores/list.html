@@ -1,0 +1,51 @@
+<div class="container-fluid">
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline" ng-submit="vm.load()">
+                <input ng-model="vm.filterValue" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <a class="btn btn-outline-info" ui-sref="app.fornecedor.new">Novo registro</a>
+        </nav>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Razão Social</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Inscrição Estadual</th>
+                    <th scope="col">Inscrição Municipal</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">UF</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rec in vm.records">
+                    <th scope="row">{{rec.nome}}</th>
+                    <td>{{rec.cnpj}}</td>
+                    <td>{{rec.razao}}</td>
+                    <td>{{rec.documento}}</td>
+                    <td>{{rec.inscricaoEstadual}}</td>
+                    <td>{{rec.inscricaoMunicipal}}</td>
+                    <td>{{rec.endereco}}</td>
+                    <td>{{rec.bairro}}</td>
+                    <td>{{rec.cep}}</td>
+                    <td>{{rec.cidade}}</td>
+                    <td>{{rec.uf}}</td>
+                    <td>{{rec.telefone}}</td>
+                    <td>{{rec.email}}</td>
+                    <td>{{rec.contato}}</td>
+                    <td style="text-align: right">
+                        <a class="btn btn-sm btn-success" ui-sref="app.fornecedor.edit({id: rec.id})">Editar</a>
+                        <button ng-click="vm.excluir(rec.id)" class="btn btn-sm btn-danger" type="button">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
